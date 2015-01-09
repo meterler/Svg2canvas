@@ -49,25 +49,33 @@ var drawPath = function(path, ctx) {
 			var param = reg[2];
 			switch (type){
 				case "m":
-					param = param.split(",");
+					param = param.replace(/,/g," ");
+					param = param.replace(/-/g," -");
+					param = param.trim().split(" ");
 					currentPoint[0] += +(param[0]);
 					currentPoint[1] += +(param[1]);
 					ctx.moveTo.apply(ctx,currentPoint);
 					break;
 				case "M":
-					param = param.split(",");
+					param = param.replace(/,/g," ");
+					param = param.replace(/-/g," -");
+					param = param.trim().split(" ");
 					currentPoint[0] = +(param[0]);
 					currentPoint[1] = +(param[1]);
 					ctx.moveTo.apply(ctx,currentPoint);
 					break;
 				case "l":
-					param = param.split(",");
+					param = param.replace(/,/g," ");
+					param = param.replace(/-/g," -");
+					param = param.trim().split(" ");
 					currentPoint[0] += +(param[0]);
 					currentPoint[1] += +(param[1]);
 					ctx.lineTo.apply(ctx,currentPoint);
 					break;
 				case "L":
-					param = param.split(",");
+					param = param.replace(/,/g," ");
+					param = param.replace(/-/g," -");
+					param = param.trim().split(" ");
 					currentPoint[0] = +(param[0]);
 					currentPoint[1] = +(param[1]);
 					ctx.lineTo.apply(ctx,currentPoint);
@@ -151,5 +159,4 @@ var drawPath = function(path, ctx) {
 	};
 	ctx.fill();
 	ctx.closePath();
-
 }
