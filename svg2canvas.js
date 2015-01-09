@@ -38,7 +38,6 @@ var drawPath = function(path, ctx) {
 	var currentPoint = [0,0];
 	var lastControl = [0,0];
 	var actionReg = /([a-z])([^a-z]*)/gi;
-	var first = true;
 	if (color) {
 		ctx.fillStyle = color;
 	};
@@ -90,15 +89,6 @@ var drawPath = function(path, ctx) {
 					ctx.lineTo.apply(ctx,currentPoint);
 					break;
 				case "z":
-					ctx.closePath();
-					if (first) {
-						ctx.fill();
-						first = false;
-					} else{
-						// ctx.clip();
-						console.log(2)
-					}
-					ctx.beginPath();
 					break;
 				case "c":
 					param = param.replace(/,/g," ");
@@ -159,6 +149,7 @@ var drawPath = function(path, ctx) {
 			}
 		};
 	};
+	ctx.fill();
 	ctx.closePath();
 
 }
