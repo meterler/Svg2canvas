@@ -1,6 +1,6 @@
 # Svg2canvas
 Transform svg code to canvas path
-
+##规则
 svg里的路径一般形如
 `<path fill="#FFFFFF" d="M152.3,19.9c0-1.6,1.3-2.8,2.8-2.8s2.8,1.3,2.8,2.8S152.3,21.4,152.3,19.9z"/>`
 
@@ -40,3 +40,9 @@ C==bezierCurveTo(x1,y1,x2,y2,x,y)
 S==bezierCurveTo(通过计算得到的x1,通过极端得到的y1,x2,y2,x,y)  
 Q==quadraticCurveTo(x1,y1,x,y)  
 T=quadraticCurveTo(通过计算得到的x1,通过极端得到的y1,x,y)  
+##待完善
+* 非path情况，如圆形，方形等
+* 动画
+* 每条path的颜色只能是纯色
+* path中的 Q T R A
+* 其他
